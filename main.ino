@@ -269,8 +269,7 @@ if (Y_4 == 0)
  }
 //return 'n';
  //Key = ctempkey;
-//-------------------KEY
-SCANNER------------------------------------------//
+//-------------------KEY SCANNER------------------------------------------//
 
  if (count == 510) //450
  {
@@ -317,8 +316,7 @@ SCANNER------------------------------------------//
  {
  gen_delay = 0;
  //RELAY2 = ~RELAY2;
- txflag = 1; // hscnd will get incremented for every half
-second
+ txflag = 1; // hscnd will get incremented for every half second
  }
 
  if(SpChar=='#')
@@ -354,8 +352,7 @@ void main(void)
  Initialize_UART(); //Initialize UART module
  //delay(100);
  /*****Port Configuration for Timer ******/
- OPTION_REG = 0b00000101; // Timer0 with external freq and 64
-as prescalar // Also Enables PULL UPs
+ OPTION_REG = 0b00000101; // Timer0 with external freq and 64 as prescalar // Also Enables PULL UPs
  //OPTION_REG &= 0x7F;
 
  TMR0 = 100; // Load the time value for 2ms; delayValue
@@ -382,8 +379,7 @@ PIE1 register
  digit = 0;
  }
  else
-if((Key=='0')||(Key=='1')||(Key=='2')||(Key=='3')||(Key=='4')||(K
-ey=='5')||(Key=='6')||(Key=='7')||(Key=='8')||(Key=='9'))
+if((Key=='0')||(Key=='1')||(Key=='2')||(Key=='3')||(Key=='4')||(Key=='5')||(Key=='6')||(Key=='7')||(Key=='8')||(Key=='9'))
  {
  switch (digit)
  {
@@ -445,29 +441,34 @@ ey=='5')||(Key=='6')||(Key=='7')||(Key=='8')||(Key=='9'))
  {
  if((Relay1_flag==1)&&(Start_timer==1))
  {
- UART_send_char(0x20);//ASCII value 10 is used for
-carriage return (to print in new line)
- UART_send_char(_RL1);
- UART_send_char(tens_a);
- UART_send_char(units_a);
- UART_send_char(SpChar);
- UART_send_char(0x20);//ASCII value 10 is used for
+ UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
+//  UART_send_char(_RL1);
+//  UART_send_char(tens_a);
+//   UART_send_char(units_a);
+//  UART_send_char(SpChar);
+//  UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
+//  UART_send_char(RelayA_Holdtime);
+  Serial.println(STARTED_A);
 
-carriage return (to print in new line)
- UART_send_char(RelayA_Holdtime);
  }
+  else{
+  Serial.println(ENDED_A)
+   }
  if(( Relay2_flag == 1)&&(Start_Btimer == 1))
  {
- UART_send_char(0x20);//ASCII value 10 is used for
-carriage return (to print in new line)
- UART_send_char(_RL2);
- UART_send_char(tens_b);
- UART_send_char(units_b);
- UART_send_char(SpChar);
- UART_send_char(0x20);//ASCII value 10 is used for
-carriage return (to print in new line)
- UART_send_char(RelayB_Holdtime);
+//  UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
+//  UART_send_char(_RL2);
+//  UART_send_char(tens_b);
+//  UART_send_char(units_b);
+//  UART_send_char(SpChar);
+//  UART_send_char(0x20);//ASCII value 10 is used for
+// carriage return (to print in new line)
+//  UART_send_char(RelayB_Holdtime);
+  Serial.println(STARTED_B);
  }
+  else{
+   Serial.println(ENDED_B)
+  }
  txflag = 0;
  }
  __delay_ms(500);
