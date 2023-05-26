@@ -34,6 +34,13 @@ Hardware related definition
 */
 //#define _XTAL_FREQ 20000000 //Crystal Frequency, used in delay
 #define Baud_rate 9600
+#define STARTED_A "MACHINE A Started"
+#define STOPPED_A "MACHINE A Stopped"
+#define STOPPED_B "MACHINE B Stopped"
+#define STARTED_B "MACHINE B Started"
+
+
+
 /*
 Other Specific definition
 */
