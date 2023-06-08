@@ -547,8 +547,8 @@ void main(void)
                 UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
                 UART_send_char(RelayA_Holdtime);
                 */
-                sprintf(message, "%c%c%c%c%c%c%c",0x20,_RL1,tens_a,units_a,SpChar,0x20,RelayA_Holdtime);
-                UART_send_string(message);                
+                sprintf(message, "%c%c\n", _RL1, RelayA_Holdtime);
+		UART_send_string(message);         
             }
             if(( Relay2_flag == 1)&&(Start_Btimer == 1))                    
             {
@@ -561,8 +561,8 @@ void main(void)
                 UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
                 UART_send_char(RelayB_Holdtime); 
                 */             
-                sprintf(message, "%c%c%c%c%c%c%c",0x20,_RL2,tens_b,units_b,SpChar,0x20,RelayB_Holdtime);
-                UART_send_string(message);                
+                sprintf(message, "%c%c\n", _RL1, RelayB_Holdtime);
+		UART_send_string(message);                  
             }
             if(( Relay3_flag == 1)&&(Start_Ctimer == 1))                    
             {
@@ -575,8 +575,8 @@ void main(void)
                 UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
                 UART_send_char(RelayC_Holdtime); 
                 */                
-                sprintf(message, "%c%c%c%c%c%c%c",0x20,_RL3,tens_c,units_c,SpChar,0x20,RelayC_Holdtime);
-                UART_send_string(message);               
+                sprintf(message, "%c%c\n", _RL1, Relayc_Holdtime);
+		UART_send_string(message);               
             }
             if(( Relay4_flag == 1)&&(Start_Dtimer == 1))                    
             {
@@ -589,8 +589,8 @@ void main(void)
                 UART_send_char(0x20);//ASCII value 10 is used for carriage return (to print in new line)
                 UART_send_char(RelayD_Holdtime); 
                 */                
-                sprintf(message, "%c%c%c%c%c%c%c",0x20,_RL4,tens_d,units_d,SpChar,0x20,RelayD_Holdtime);
-                UART_send_string(message);            
+                sprintf(message, "%c%c\n", _RL1, RelayD_Holdtime);
+		UART_send_string(message);     
             }
             txflag = 0;
         } 
